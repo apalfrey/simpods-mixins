@@ -1,0 +1,106 @@
+@mixin media-min($size, $min-type:'width', $media-type:'', $custom:'') {
+	@if $media-type!='' {
+		$media-type: $media-type+' and ';
+	}
+	@if $custom!='' {
+		$custom: ' '+$custom;
+	}
+	$query: $media-type+'(min-'+$min-type+': '+$size+')'+$custom;
+	@media #{$query} {
+		@content;
+	}
+}
+
+@mixin media-max($size, $max-type:'width', $media-type:'', $custom:'') {
+	@if $media-type!='' {
+		$media-type: $media-type+' and';
+	}
+	@if $custom!='' {
+		$custom: ' '+$custom;
+	}
+	$query: $media-type+'(max-'+$max-type+': '+$size+')'+$custom;
+	@media #{$query} {
+		@content;
+	}
+}
+
+@mixin media-between($min-size, $max-size, $min-type:'width', $max-type:'width', $media-type:'', $custom:'') {
+	@if $media-type!='' {
+		$media-type: $media-type+' and';
+	}
+	@if $custom!='' {
+		$custom: ' '+$custom;
+	}
+	$query: $media-type+'(min-'+$min-type+': '+$min-size+') and (max-'+$max-type+': '+$max-size+')'+$custom;
+	@media #{$query} {
+		@content;
+	}
+}
+
+@mixin retina() {
+	@media
+		only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (min--moz-device-pixel-ratio: 2),
+		only screen and (-o-min-device-pixel-ratio: 2/1),
+		only screen and (min-device-pixel-ratio: 2),
+		only screen and (min-resolution: 192dpi),
+		only screen and (min-resolution: 2dppx) {
+		@content;
+	}
+}
+
+@mixin print() {
+	@media print {
+		@content;
+	}
+}
+
+// Bootstrap 4 Specific
+
+@mixin sm-max() {
+	@include media-breakpoint-down(xs) {
+		@content;
+	}
+}
+
+@mixin sm-min() {
+	@include media-breakpoint-up(sm) {
+		@content;
+	}
+}
+
+@mixin md-max() {
+	@include media-breakpoint-down(sm) {
+		@content;
+	}
+}
+
+@mixin md-min() {
+	@include media-breakpoint-up(md) {
+		@content;
+	}
+}
+
+@mixin lg-max() {
+	@include media-breakpoint-down(md) {
+		@content;
+	}
+}
+
+@mixin lg-min() {
+	@include media-breakpoint-up(lg) {
+		@content;
+	}
+}
+
+@mixin xl-max() {
+	@include media-breakpoint-down(lg) {
+		@content;
+	}
+}
+
+@mixin xl-min() {
+	@include media-breakpoint-up(xl) {
+		@content;
+	}
+}

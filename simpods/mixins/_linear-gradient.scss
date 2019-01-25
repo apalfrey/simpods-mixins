@@ -1,0 +1,19 @@
+/// Mixin printing a linear-gradient 
+/// as well as a plain color fallback 
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {String | List | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($dir, $color-stops...) {
+	@if is-direction($dir) == false {
+		$color-stops: ($dir, $color-stops);
+		$dir: 180deg;
+	}
+
+	$legacy-dir: legacy-direction($dir);
+	background-color: nth(nth($color-stops, 1), 1);
+	background-image: -webkit-linear-gradient($legacy-dir, $color-stops);
+	background-image: -moz-linear-gradient($legacy-dir, $color-stops);
+	background-image: -o-linear-gradient($legacy-dir, $color-stops);
+	background-image: linear-gradient($dir, $color-stops);
+}

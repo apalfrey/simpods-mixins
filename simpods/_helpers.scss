@@ -1,0 +1,7 @@
+@if variable-exists(aligns) {
+	@each $align in $aligns {
+		.va-#{$align} {
+			vertical-align: $align !important;
+		}
+	}
+}
