@@ -1,0 +1,15 @@
+{
+  "name": "simpods-mixins",
+  "version": "1.0.1",
+  "description": "The mixin library for Simpods MVC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apalfrey/simpods-mixins.git"
+  },
+  "author": "Andrew Palfrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apalfrey/simpods-mixins/issues"
+  },
+  "homepage": "https://github.com/apalfrey/simpods-mixins#readme"
+}
