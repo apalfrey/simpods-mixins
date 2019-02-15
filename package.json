@@ -1,6 +1,6 @@
 {
   "name": "simpods-mixins",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The mixin library for Simpods MVC",
   "repository": {
     "type": "git",
