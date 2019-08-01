@@ -2,15 +2,19 @@
 	&.placeholder {
 		@content;
 	}
+
 	&:-moz-placeholder {
 		@content;
 	}
+
 	&::-moz-placeholder {
 		@content;
 	}
+
 	&:-ms-input-placeholder {
 		@content;
 	}
+
 	&::-webkit-input-placeholder {
 		@content;
 	}
@@ -18,6 +22,7 @@
 
 @mixin responsive-ratio($x, $y, $pseudo: false) {
 	$padding: unquote(($y / $x) * 100 + '%');
+
 	@if $pseudo {
 		&::before {
 			@include pseudo($pos: relative);
@@ -25,6 +30,7 @@
 			padding-top: $padding;
 		}
 	}
+
 	@else {
 		padding-top: $padding;
 	}
@@ -34,23 +40,28 @@
 	@each $breakpoint in map-keys($grid-breakpoints) {
 		@include media-breakpoint-up($breakpoint) {
 			$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
 			@each $prop,
 			$abbrev in (margin: m, padding: p) {
 				.#{$abbrev}#{$infix}-#{$size} {
 					#{$prop}: $size !important;
 				}
+
 				.#{$abbrev}t#{$infix}-#{$size},
 				.#{$abbrev}y#{$infix}-#{$size} {
 					#{$prop}-top: $size !important;
 				}
+
 				.#{$abbrev}r#{$infix}-#{$size},
 				.#{$abbrev}x#{$infix}-#{$size} {
 					#{$prop}-right: $size !important;
 				}
+
 				.#{$abbrev}b#{$infix}-#{$size},
 				.#{$abbrev}y#{$infix}-#{$size} {
 					#{$prop}-bottom: $size !important;
 				}
+
 				.#{$abbrev}l#{$infix}-#{$size},
 				.#{$abbrev}x#{$infix}-#{$size} {
 					#{$prop}-left: $size !important;
@@ -60,32 +71,34 @@
 	}
 }
 
-@mixin pos($pos,
-$t: false,
-$r: false,
-$b: false,
-$l: false) {
+@mixin pos($pos, $t: false, $r: false, $b: false, $l: false) {
 	position: $pos;
+
 	@if $t {
 		top: $t;
 	}
+
 	@if $r {
 		right: $r;
 	}
+
 	@if $b {
 		bottom: $b;
 	}
+
 	@if $l {
 		left: $l;
 	}
 }
 
 @mixin clearfix() {
+
 	&:before,
 	&:after {
 		content: "";
 		display: table;
 	}
+
 	&:after {
 		clear: both;
 	}
@@ -93,6 +106,7 @@ $l: false) {
 
 @mixin aspect-ratio($width, $height) {
 	position: relative;
+
 	&:before {
 		display: block;
 		content: "";

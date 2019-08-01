@@ -1,14 +1,18 @@
 @mixin typography($font, $size: false, $colour: false, $weight: false, $lh: false) {
 	font-family: $font;
+
 	@if $size {
 		font-size: $size;
 	}
+
 	@if $colour {
 		color: $colour;
 	}
+
 	@if $weight {
 		font-weight: $weight;
 	}
+
 	@if $lh {
 		line-height: $lh;
 	}
@@ -18,16 +22,21 @@
 	@if $content {
 		content: $content;
 	}
+
 	display: inline-block;
+
 	@if $version==4 {
 		font-family: 'FontAwesome' !important;
 	}
-	@elseif $version==5 {
+
+	@else if $version==5 {
 		font-family: 'Font Awesome 5 Free' !important;
 	}
-	@elseif $version=='brand' {
+
+	@else if $version=='brand' {
 		font-family: 'Font Awesome 5 Brands' !important;
 	}
+
 	font-style: normal !important;
 	font-weight: $weight !important;
 	font-variant: normal !important;
