@@ -104,7 +104,7 @@
 	}
 }
 
-@mixin aspect-ratio($width, $height) {
+@mixin aspect-ratio($width, $height, $child: ".content") {
 	position: relative;
 
 	&:before {
@@ -113,7 +113,8 @@
 		width: 100%;
 		padding-top: ($height / $width) * 100%;
 	}
-	>.content {
+
+	>#{$child} {
 		position: absolute;
 		top: 0;
 		left: 0;
